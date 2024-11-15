@@ -42,4 +42,142 @@
     color: #2c3e50;
     text-decoration: underline;
   }
-  
+ 
+  .mood-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.emotions-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.emotion-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    width: 100px; 
+    height: 100px; 
+    position: relative;
+    overflow: hidden;
+}
+
+.emotion-button:hover {
+    background-color: #e0e0e0;
+}
+
+.emotion-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.mood-page.happy .happy .emotion-icon,
+.mood-page.sad .sad .emotion-icon,
+.mood-page.angry .angry .emotion-icon,
+.mood-page.anxious .anxious .emotion-icon,
+.mood-page.excited .excited .emotion-icon {
+    transform: scale(1.2);
+}
+
+/* happy animation */
+@keyframes hop {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.mood-page.happy .happy .emotion-icon {
+    animation: hop 1s ;
+}
+
+/* excited animation */
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.mood-page.excited .excited .emotion-icon {
+    animation: jump 0.8s ;
+}
+
+/* angry animation */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.mood-page.anxious .anxious .emotion-icon {
+    animation: rotate 3s linear;
+}
+
+/* angry animation */
+@keyframes jitter {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.mood-page.angry .angry .emotion-icon {
+    animation: jitter 0.5s ;
+}
+
+/* sad animation */
+@keyframes droop {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+.mood-page.sad .sad .emotion-icon {
+    animation: droop 1.5s ;
+}
+
+.selected-mood {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.mood-entries {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.mood-entries ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mood-entries li {
+    background-color: #fafafa;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
